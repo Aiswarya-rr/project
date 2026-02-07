@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://your-frontend-domain"]
+  origin: ["http://localhost:3000", "https://project-tawny-nu-50.vercel.app"]
 }));
 
 // Connect to MongoDB
