@@ -282,7 +282,7 @@ export default function AdminLogin() {
     if (!window.confirm("Are you sure you want to delete this item?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/${type}/${id}`);
+      await axios.delete(`${API_BASE}/api/${type}/${id}`);
       if (type === "orders") setOrders((prev) => prev.filter((o) => o._id !== id));
       if (type === "contacts") setContacts((prev) => prev.filter((c) => c._id !== id));
       if (type === "services") setServices((prev) => prev.filter((s) => s._id !== id));
@@ -311,14 +311,14 @@ export default function AdminLogin() {
     try {
       if (serviceForm._id) {
         // Update existing service
-        const res = await axios.put(`http://localhost:5000/api/services/${serviceForm._id}`, serviceForm);
+        const res = await axios.put(`${API_BASE}/api/services/${serviceForm._id}`, serviceForm);
         setServices((prev) =>
           prev.map((s) => (s._id === serviceForm._id ? res.data.service : s))
         );
         toast.success("Service updated successfully");
       } else {
         // Add new service
-        const res = await axios.post(`http://localhost:5000/api/services`, serviceForm);
+        const res = await axios.post(`${API_BASE}/api/services`, serviceForm);
         setServices((prev) => [res.data, ...prev]);
         toast.success("Service added successfully");
       } 

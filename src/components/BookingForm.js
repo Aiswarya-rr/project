@@ -123,7 +123,7 @@ function BookingForm() {
 
   useEffect(() => {
     if (isEdit) {
-      axios.get(`http://localhost:5000/api/orders/${id}`).then((res) => {
+      axios.get(`${API_BASE}/api/orders/${id}`).then((res) => {
         const o = res.data;
         setName(o.name);
         setService(o.service);
@@ -176,9 +176,9 @@ function BookingForm() {
 
     try {
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/orders/${id}`, orderData);
+        await axios.put(`${API_BASE}/api/orders/${id}`, orderData);
       } else {
-        await axios.post("http://localhost:5000/api/orders", orderData);
+        await axios.post("${API_BASE}/api/orders", orderData);
       }
       setOrderId(orderData.orderId);
       setIsSuccess(true);
