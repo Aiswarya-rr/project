@@ -7,7 +7,9 @@ export default function Login() {
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
-   const navigate = useNavigate();
+  const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -16,7 +18,7 @@ export default function Login() {
     e.preventDefault();
     setMessage(""); // Clear previous messages
     try {
-      const res = await axios.post("http://localhost:5000/api/login", form);
+      const res = await axios.post(`${API_BASE}/api/login`, form);
       localStorage.setItem("token", res.data.token);
       setMessage("Login successful! ");
       setIsSuccess(true);

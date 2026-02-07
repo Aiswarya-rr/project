@@ -401,6 +401,7 @@ function ContactPage() {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
+  const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
   try {
     const data = {
       name: form.name,
@@ -412,7 +413,7 @@ function ContactPage() {
       timestamp: new Date().toISOString(),
     };
 
-    const response = await fetch("http://localhost:5000/api/contact", {
+    const response = await fetch(`${API_BASE}/api/contact`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

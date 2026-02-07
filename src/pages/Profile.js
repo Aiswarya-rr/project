@@ -27,8 +27,6 @@
 //     </div>
 //   );
 // }
-
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -36,6 +34,8 @@ export default function Profile() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -47,7 +47,7 @@ export default function Profile() {
       }
 
       try {
-        const res = await axios.get("http://localhost:5000/api/profile", {
+        const res = await axios.get(`${API_BASE}/api/profile`, {
           headers: { Authorization: token },
         });
         setUser(res.data.user);

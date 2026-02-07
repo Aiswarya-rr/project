@@ -237,10 +237,12 @@ export default function AdminLogin() {
     _id: null, // null means add, not update
   });
 
+  const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
   // Fetch functions
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/orders");
+      const res = await axios.get(`${API_BASE}/api/orders`);
       setOrders(res.data);
     } catch (err) {
       console.error("Error fetching orders:", err);
@@ -249,7 +251,7 @@ export default function AdminLogin() {
 
   const fetchContacts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/contacts");
+      const res = await axios.get(`${API_BASE}/api/contacts`);
       setContacts(res.data);
     } catch (err) {
       console.error("Error fetching contacts:", err);
@@ -258,7 +260,7 @@ export default function AdminLogin() {
 
   const fetchServices = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/services");
+      const res = await axios.get(`${API_BASE}/api/services`);
       setServices(res.data);
     } catch (err) {
       console.error("Error fetching services:", err);
