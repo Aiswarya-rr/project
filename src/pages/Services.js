@@ -8,7 +8,7 @@ function Services() {
   // Fetch services from backend
   const fetchServices = async () => {
     try {
-      const res = await axios.get("${API_BASE}/api/services");
+      const res = await axios.get(`${API_BASE}/api/services`);
       setServices(res.data);
     } catch (err) {
       console.error("Error fetching services:", err);

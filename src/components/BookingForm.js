@@ -178,7 +178,7 @@ function BookingForm() {
       if (isEdit) {
         await axios.put(`${API_BASE}/api/orders/${id}`, orderData);
       } else {
-        await axios.post("${API_BASE}/api/orders", orderData);
+        await axios.post(`${API_BASE}/api/orders`, orderData);
       }
       setOrderId(orderData.orderId);
       setIsSuccess(true);
