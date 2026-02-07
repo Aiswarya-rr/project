@@ -1,9 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Services() {
   const [services, setServices] = useState([]);
+
+  const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
 
   // Fetch services from backend
   const fetchServices = async () => {

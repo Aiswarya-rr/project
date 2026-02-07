@@ -102,6 +102,8 @@ function BookingForm() {
   const navigate = useNavigate();
   const isEdit = Boolean(id);
 
+  const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
   const [name, setName] = useState("");
   const [selectedSlot, setSelectedSlot] = useState("");
   const [bookedSlots, setBookedSlots] = useState([]);
