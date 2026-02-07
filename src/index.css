@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[#fffdf7] text-[#5c5043];
+}
+.bg-white {
+  background-color: #fffdf7 !important;
+}
+.bg-gray-50 {
+  background-color: #f7f3ee !important;
+}
+.bg-gray-100 {
+  background-color: #f3eee7 !important;
+}
+.text-blue-700 {
+  color: #412404 !important;
+}
+.text-green-700 {
+  color: #2e1e02 !important;
+}
+.text-green-600 {
+  color: #2c1f03 !important;
+}
+.text-gray-700 {
+  color: #231302 !important;
+}
+.text-gray-800 {
+  color: #5c5043 !important;
+}
